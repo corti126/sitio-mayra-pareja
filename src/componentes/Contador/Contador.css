@@ -1,46 +1,39 @@
 .title-text {
   font-family: "Permanent Marker", cursive;
-  /* Usamos clamp para un tamaño de fuente responsivo: min, preferido (vw), max */
-  font-size: clamp(2em, 7vw, 2.5em); /* Ajustado para que sea responsivo */
+  font-size: clamp(2em, 7vw, 2.5em);
   color: #e91e63;
-  margin-bottom: 0px; /* Ya lo tenías en 0px */
+  margin-bottom: 0px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  text-align: center; /* ¡Añadido para centrar el texto! */
+  text-align: center;
 }
 
-/* Estilos para la visualización del tiempo */
 .time-display {
-  font-family: 'Dancing Script', cursive; /* Fuente más decorativa */
-  /* Ajuste de clamp para un tamaño de fuente responsivo */
-  font-size: clamp(1.8em, 6vw, 2em); /* Ajustado para que sea responsivo */
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.8em, 6vw, 2em);
   color: #c2185b;
   font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center; /* ¡Añadido para centrar el texto! */
+  margin-bottom: 28px;
+  text-align: center;
 }
 
-/* Estilos para el nuevo párrafo "Vamos por más" */
 .more-text {
-  font-family: 'Dancing Script', cursive; /* Fuente más decorativa */
-  /* Ajuste de clamp para un tamaño de fuente responsivo */
-  font-size: clamp(1.3em, 4.5vw, 1.5em); /* Ajustado para que sea responsivo */
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.3em, 4.5vw, 1.5em);
   font-weight: 600;
-  color: #000; /* Color negro */
-  margin-top: -10px; /* Ajusta el margen superior para acercarlo al tiempo */
+  color: #000;
+  margin-top: -10px;
   margin-bottom: 10px;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
-  text-align: center; /* ¡Añadido para centrar el texto! */
+  text-align: center;
 }
 
-
-/* Estilos para el botón "Celebrar" */
 .celebrate-button {
   background-color: #e91e63;
   color: white;
   border: none;
   border-radius: 25px;
-  padding: clamp(10px, 3vw, 12px) clamp(20px, 6vw, 25px); /* Padding responsivo */
-  font-size: clamp(1em, 3.5vw, 1.2em); /* Tamaño de fuente responsivo */
+  padding: clamp(10px, 3vw, 12px) clamp(20px, 6vw, 25px);
+  font-size: clamp(1em, 3.5vw, 1.2em);
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
@@ -58,7 +51,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Estilos para los corazones animados (AHORA FIJOS EN LA PÁGINA) --- */
 .heart-emitter-container {
   position: fixed;
   bottom: 0;
@@ -74,7 +66,6 @@
   position: absolute;
   bottom: -20px;
   color: #ff69b4;
-  /* Tamaño de corazón responsivo */
   font-size: clamp(15px, 5vw, 30px); 
   animation: floatUpAndFade 2s forwards ease-out;
   opacity: 0;
@@ -97,8 +88,5 @@
   }
 }
 
-/* Media query para pantallas más pequeñas (ej. móviles) */
 @media (max-width: 768px) {
-  /* Puedes añadir ajustes adicionales aquí si los valores de clamp no son suficientes */
-  /* Por ejemplo, si el texto se ve muy grande o pequeño en un tamaño específico */
 }

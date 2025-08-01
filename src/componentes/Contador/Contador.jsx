@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import "./Contador.css";
 
 function Contador ({ onCelebrate }) {
-  const startDate = useMemo(() => new Date(2025, 5, 6, 0, 0, 0), []); // ¡IMPORTANTE! Cambia esta fecha
+  const startDate = useMemo(() => new Date(2025, 5, 6, 0, 0, 0), []);
   const [timeElapsed, setTimeElapsed] = useState('');
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function Contador ({ onCelebrate }) {
     <>
       <p className="title-text">Tiempo desde que estamos juntos</p>
       <p className="time-display">{timeElapsed}</p>
-      <p className="more-text">Vamos por más meses</p> 
+      <p className="more-text">Vamos por más tiempo...</p> 
       
       <button className="celebrate-button" onClick={onCelebrate}>
         Celebrar

@@ -1,38 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-/* src/App.css */
-
-/* Asegura que el HTML y el Body ocupen toda la altura de la ventana */
 html, body, #root, .App {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Evita barras de desplazamiento si el contenido no cabe */
+  overflow: hidden;
 }
 
 .App {
-  /* Establece el fondo con múltiples degradados radiales para crear "manchas" */
   background: 
-    radial-gradient(circle at 20% 80%, #ffd1dc, transparent 70%), /* Rosa un poco más fuerte */
-    radial-gradient(circle at 80% 20%, #ffafbf, transparent 70%), /* Rosa un poco más fuerte */
-    radial-gradient(circle at 50% 50%, #ff99bb, transparent 70%), /* Rosa medio-claro */
-    radial-gradient(circle at 10% 50%, #ff7f9e, transparent 70%), /* Rosa medio */
-    radial-gradient(circle at 90% 90%, #ff6688, transparent 70%); /* Rosa medio-oscuro */
-  background-color: #ffdde1; /* Color base si los gradientes no cubren todo */
-  background-size: 200% 200%, 250% 250%, 180% 180%, 220% 220%, 300% 300%; /* Diferentes tamaños para las "manchas" */
-  background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%; /* Posiciones iniciales */
-  animation: backgroundAnimation 5s ease infinite alternate; /* Animación de movimiento mucho más rápida (5 segundos) */
+    radial-gradient(circle at 20% 80%, #ffd1dc, transparent 70%),
+    radial-gradient(circle at 80% 20%, #ffafbf, transparent 70%),
+    radial-gradient(circle at 50% 50%, #ff99bb, transparent 70%),
+    radial-gradient(circle at 10% 50%, #ff7f9e, transparent 70%),
+    radial-gradient(circle at 90% 90%, #ff6688, transparent 70%);
+  background-color: #ffdde1;
+  background-size: 200% 200%, 250% 250%, 180% 180%, 220% 220%, 300% 300%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%;
+  animation: backgroundAnimation 5s ease infinite alternate;
   position: relative;
-  min-height: 100vh; /* Asegura que ocupe al menos el 100% del alto de la ventana */
-  display: flex; /* Para centrar el contenido si es necesario */
+  min-height: 100vh;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Alinea el contenido al inicio, no al centro */
-  padding-top: 20px; /* Reducido de 50px a 20px */
+  justify-content: flex-start;
+  padding-top: 20px;
 }
 
-/* Animación para el fondo */
 @keyframes backgroundAnimation {
   0% {
     background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%;
@@ -42,7 +37,6 @@ html, body, #root, .App {
   }
 }
 
-/* Opcional: Capa de "efecto de mármol" con blur */
 .App::before {
   content: '';
   position: absolute;
@@ -50,12 +44,11 @@ html, body, #root, .App {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Degradado sutil para añadir más textura y luz */
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-  filter: blur(50px) opacity(0.7); /* Difuminado y transparencia */
-  mix-blend-mode: overlay; /* Modo de mezcla para un efecto más sutil */
-  animation: overlayAnimation 6s ease infinite alternate; /* Animación de movimiento mucho más rápida (6 segundos) */
-  z-index: -1; /* Asegura que esté detrás del contenido */
+  filter: blur(50px) opacity(0.7);
+  mix-blend-mode: overlay;
+  animation: overlayAnimation 6s ease infinite alternate;
+  z-index: -1;
 }
 
 @keyframes overlayAnimation {
@@ -63,11 +56,10 @@ html, body, #root, .App {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.2); /* Ligeramente más grande para el efecto de movimiento */
+    transform: scale(1.2);
   }
 }
 
-/* Estilos generales para el cuerpo de la página */
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
