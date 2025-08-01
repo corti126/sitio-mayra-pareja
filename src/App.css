@@ -1,38 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* Asegura que el HTML y el Body ocupen toda la altura de la ventana */
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evita barras de desplazamiento si el contenido no cabe */
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  /* Establece el fondo con múltiples degradados radiales para crear "manchas" */
+  background: 
+    radial-gradient(circle at 20% 80%, #ffd1dc, transparent 70%), /* Rosa un poco más fuerte */
+    radial-gradient(circle at 80% 20%, #ffafbf, transparent 70%), /* Rosa un poco más fuerte */
+    radial-gradient(circle at 50% 50%, #ff99bb, transparent 70%), /* Rosa medio-claro */
+    radial-gradient(circle at 10% 50%, #ff7f9e, transparent 70%), /* Rosa medio */
+    radial-gradient(circle at 90% 90%, #ff6688, transparent 70%); /* Rosa medio-oscuro */
+  background-color: #ffdde1; /* Color base si los gradientes no cubren todo */
+  background-size: 200% 200%, 250% 250%, 180% 180%, 220% 220%, 300% 300%; /* Diferentes tamaños para las "manchas" */
+  background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%; /* Posiciones iniciales */
+  animation: backgroundAnimation 10s ease infinite alternate; /* Animación de movimiento más rápida */
+  position: relative;
+  min-height: 100vh; /* Asegura que ocupe al menos el 100% del alto de la ventana */
+  display: flex; /* Para centrar el contenido si es necesario */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start; /* Alinea el contenido al inicio, no al centro */
+  padding-top: 50px; /* Un poco de espacio arriba para el contador */
 }
 
-.App-link {
-  color: #61dafb;
+/* Animación para el fondo */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%;
+  }
+  100% {
+    background-position: 100% 0%, 0% 100%, 20% 50%, 80% 20%, 0% 80%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Opcional: Capa de "efecto de mármol" con blur */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Degradado sutil para añadir más textura y luz */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  filter: blur(50px) opacity(0.7); /* Difuminado y transparencia */
+  mix-blend-mode: overlay; /* Modo de mezcla para un efecto más sutil */
+  animation: overlayAnimation 12s ease infinite alternate; /* Animación de movimiento más rápida */
+  z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+@keyframes overlayAnimation {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: scale(1.2); /* Ligeramente más grande para el efecto de movimiento */
   }
+}
+
+/* Estilos generales para el cuerpo de la página */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
 }

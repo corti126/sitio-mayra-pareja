@@ -1,0 +1,110 @@
+/* src/Contador.css */
+
+/* Importa las fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Dancing+Script:wght@400;700&display=swap');
+
+
+/* Eliminamos los estilos para .contador-container */
+
+/* Estilos para el título del contador */
+.title-text {
+  font-family: "Permanent Marker", cursive;
+  /* Usamos clamp para un tamaño de fuente responsivo: min, preferido (vw), max */
+  font-size: clamp(2em, 7vw, 2.5em); /* Ajustado para que sea responsivo */
+  color: #e91e63;
+  margin-bottom: 0px; /* Ya lo tenías en 0px */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la visualización del tiempo */
+.time-display {
+  font-family: 'Dancing Script', cursive; /* Fuente más decorativa */
+  /* Ajuste de clamp para un tamaño de fuente responsivo */
+  font-size: clamp(1.8em, 6vw, 2em); /* Ajustado para que sea responsivo */
+  color: #c2185b;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el nuevo párrafo "Vamos por más" */
+.more-text {
+  font-family: 'Dancing Script', cursive; /* Fuente más decorativa */
+  /* Ajuste de clamp para un tamaño de fuente responsivo */
+  font-size: clamp(1.3em, 4.5vw, 1.5em); /* Ajustado para que sea responsivo */
+  font-weight: 600;
+  color: #000; /* Color negro */
+  margin-top: -10px; /* Ajusta el margen superior para acercarlo al tiempo */
+  margin-bottom: 10px;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos para el botón "Celebrar" */
+.celebrate-button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: clamp(10px, 3vw, 12px) clamp(20px, 6vw, 25px); /* Padding responsivo */
+  font-size: clamp(1em, 3.5vw, 1.2em); /* Tamaño de fuente responsivo */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.celebrate-button:hover {
+  background-color: #e04b9b;
+  transform: translateY(-2px);
+}
+
+.celebrate-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Estilos para los corazones animados (AHORA FIJOS EN LA PÁGINA) --- */
+.heart-emitter-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  color: #ff69b4;
+  /* Tamaño de corazón responsivo */
+  font-size: clamp(15px, 5vw, 30px); 
+  animation: floatUpAndFade 2s forwards ease-out;
+  opacity: 0;
+  transform: translateX(-50%);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes floatUpAndFade {
+  0% {
+    transform: translateY(0) translateX(-50%) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-10%) translateX(-50%) scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(-50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Media query para pantallas más pequeñas (ej. móviles) */
+@media (max-width: 768px) {
+  /* Puedes añadir ajustes adicionales aquí si los valores de clamp no son suficientes */
+  /* Por ejemplo, si el texto se ve muy grande o pequeño en un tamaño específico */
+}
