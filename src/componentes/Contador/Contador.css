@@ -1,12 +1,3 @@
-/* src/Contador.css */
-
-/* Importa las fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Dancing+Script:wght@400;700&display=swap');
-
-
-/* Eliminamos los estilos para .contador-container */
-
-/* Estilos para el título del contador */
 .title-text {
   font-family: "Permanent Marker", cursive;
   /* Usamos clamp para un tamaño de fuente responsivo: min, preferido (vw), max */
