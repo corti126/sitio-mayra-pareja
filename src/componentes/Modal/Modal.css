@@ -1,0 +1,60 @@
+/* src/componentes/Modal/Modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Asegura que esté por encima de todo */
+  opacity: 0; /* Inicialmente invisible */
+  animation: fadeIn 0.3s forwards ease-out; /* Animación de aparición */
+}
+
+.modal-content {
+  background-color: white;
+  padding: clamp(20px, 5vw, 40px); /* Padding responsivo */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: clamp(300px, 80vw, 600px); /* Ancho responsivo */
+  max-height: 80vh; /* Alto máximo para que no ocupe toda la pantalla */
+  overflow-y: hidden; /* Permite scroll si el contenido es largo */
+  position: relative;
+  transform: translateY(20px); /* Inicialmente un poco abajo */
+  opacity: 0; /* Inicialmente invisible */
+  animation: slideIn 0.4s forwards ease-out 0.1s; /* Animación de deslizamiento y aparición */
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #e91e63;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.modal-close-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
