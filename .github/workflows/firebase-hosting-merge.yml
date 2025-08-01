@@ -18,3 +18,5 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SITIO_MAYRA_PAREJA }}
           channelId: live
           projectId: sitio-mayra-pareja
+          # Añade esta línea:
+          args: --public build
