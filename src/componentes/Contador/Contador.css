@@ -14,6 +14,7 @@
   color: #e91e63;
   margin-bottom: 0px; /* Ya lo tenías en 0px */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center; /* ¡Añadido para centrar el texto! */
 }
 
 /* Estilos para la visualización del tiempo */
@@ -24,6 +25,7 @@
   color: #c2185b;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center; /* ¡Añadido para centrar el texto! */
 }
 
 /* Estilos para el nuevo párrafo "Vamos por más" */
@@ -36,6 +38,7 @@
   margin-top: -10px; /* Ajusta el margen superior para acercarlo al tiempo */
   margin-bottom: 10px;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+  text-align: center; /* ¡Añadido para centrar el texto! */
 }
 
 
