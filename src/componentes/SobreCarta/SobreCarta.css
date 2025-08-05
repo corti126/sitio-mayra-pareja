@@ -6,42 +6,42 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  width: 100%; /* Ocupa todo el ancho disponible */
-  box-sizing: border-box; /* Incluye padding en el ancho */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .sobre-intro-text {
-  font-family: 'Dancing Script', cursive; /* Fuente decorativa */
-  font-size: clamp(1.2em, 4vw, 1.8em); /* Responsivo */
-  color: #c2185b; /* Color rosa oscuro */
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.2em, 4vw, 1.8em);
+  color: #c2185b;
   text-align: center;
-  margin: 0 0 20px 0; /* Tus espacios mantenidos */
+  margin: 0 0 20px 0;
 }
 
 .sobre-outro-text {
-  font-family: 'Dancing Script', cursive; /* Fuente decorativa */
-  font-size: clamp(1.2em, 4vw, 1.8em); /* Responsivo */
-  color: #c2185b; /* Color rosa oscuro */
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.2em, 4vw, 1.8em);
+  color: #c2185b;
   text-align: center;
-  margin: 20px 0 0 0; /* Tus espacios mantenidos */
+  margin: 20px 0 0 0;
 }
 
-/* --- Estilos del Sobre (Colores rosados originales) --- */
+/* --- Estilos del Sobre (Nuevos Colores Suaves) --- */
 .envelope {
   position: relative;
-  width: clamp(250px, 70vw, 400px); /* Ancho responsivo */
-  height: clamp(150px, 40vw, 250px); /* Alto responsivo */
-  background-color: #ffb3c1; /* ¡COLOR RESTAURADO! Rosa claro del sobre */
+  width: clamp(250px, 70vw, 400px);
+  height: clamp(150px, 40vw, 250px);
+  background-color: #ffc4e0; /* NUEVO: Un rosa claro más suave */
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* ¡SOMBRA RESTAURADA! Sombra suave */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
   cursor: pointer;
-  overflow: hidden; /* Importante para que la carta no se vea antes de salir */
-  transition: transform 0.5s ease; /* Transición para el giro del sobre */
-  z-index: 10; /* Asegura que esté por encima de otros elementos */
+  overflow: hidden;
+  transition: transform 0.5s ease;
+  z-index: 10;
 }
 
 .envelope:hover {
-  transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
+  transform: translateY(-5px);
 }
 
 /* Solapa superior del sobre */
@@ -50,24 +50,22 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 50%; /* La mitad superior del sobre */
-  background-color: #ff99bb; /* ¡COLOR RESTAURADO! Un rosa un poco más oscuro para la solapa */
-  transform-origin: top; /* Punto de pivote para la rotación */
-  transition: transform 0.5s ease-out; /* Animación de apertura */
-  z-index: 2; /* Por encima del cuerpo del sobre */
-
-  /* Forma de la solapa (triángulo) - se mantiene para simular la forma del sobre */
+  height: 50%;
+  background-color: #ff99bb; /* NUEVO: Un rosa medio que reduce el contraste */
+  transform-origin: top;
+  transition: transform 0.5s ease-out;
+  z-index: 2;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
-/* Cuerpo principal del sobre (la parte visible inferior) */
+/* Cuerpo principal del sobre */
 .envelope-body {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Ocupa todo el sobre */
-  background-color: #ffb3c1; /* ¡COLOR RESTAURADO! Mismo color que el sobre base */
+  height: 100%;
+  background-color: #ffc4e0; /* NUEVO: Mismo color que el sobre base para consistencia */
   z-index: 1;
 }
 
@@ -77,46 +75,42 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(2em, 8vw, 3em); /* Tamaño responsivo */
-  color: #e91e63; /* ¡COLOR RESTAURADO! Rosa fuerte */
-  z-index: 3; /* Por encima de la solapa */
+  font-size: clamp(2em, 8vw, 3em);
+  color: #e91e63; /* NUEVO: El rosa fuerte para un pequeño toque de color */
+  z-index: 3;
   transition: opacity 0.3s ease;
 }
 
-/* --- Estado 'open' del sobre --- */
-/* Estas reglas ya no se usan si la carta se abre en un modal,
-   pero las mantengo por si la lógica cambia en el futuro. */
+/* --- El resto del código CSS se mantiene igual --- */
+
 .envelope.open .envelope-flap {
-  transform: rotateX(180deg); /* La solapa gira 180 grados */
-  z-index: 0; /* Se va detrás de la carta al abrirse */
+  transform: rotateX(180deg);
+  z-index: 0;
 }
 
 .envelope.open .envelope-heart {
-  opacity: 0; /* El corazón desaparece al abrirse */
+  opacity: 0;
 }
 
-/* --- Estilos de la Carta (dentro del modal) --- */
-/* NOTA: El fondo de la carta y el color del texto se controlan aquí,
-         aunque la carta se renderice dentro del Modal.jsx */
 .letter-greeting,
 .letter-content,
 .letter-signature,
 .letter-signature-name {
-  font-family: 'Arial', sans-serif; /* Usamos Arial como base para el contenido */
-  color: #333; /* Color de texto predeterminado para el contenido de la carta */
+  font-family: 'Arial', sans-serif;
+  color: #333;
 }
 
 .letter-greeting {
-  font-family: 'Dancing Script', cursive; /* Fuente decorativa para el saludo */
+  font-family: 'Dancing Script', cursive;
   font-size: clamp(1.3em, 4.5vw, 1.8em);
   margin-bottom: 10px;
-  color: #e91e63; /* Rosa fuerte para el saludo */
+  color: #e91e63;
 }
 
 .letter-content {
   font-size: clamp(0.9em, 3vw, 1.1em);
   margin-bottom: 15px;
-  color: #444; /* Gris oscuro para el contenido principal */
+  color: #444;
 }
 
 .letter-signature, .letter-signature-name {
@@ -124,7 +118,7 @@
   font-size: clamp(1.1em, 3.5vw, 1.4em);
   text-align: right;
   margin-top: 5px;
-  color: #e91e63; /* Rosa fuerte para la firma (restaurado) */
+  color: #e91e63;
 }
 
 /* Media Queries para ajustes finos en móviles */

@@ -46,7 +46,9 @@
 .task-content {
   display: flex;
   align-items: center;
-  flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+  /* Le damos una flexibilidad para que crezca, pero con un tamaño mínimo */
+  flex: 1; 
+  min-width: 0; /* Permite que el texto se comprima y use el 'word-break' */
 }
 
 .task-checkbox {
@@ -59,6 +61,7 @@
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
+  flex-shrink: 0; /* Evita que el checkbox se comprima */
 }
 
 .task-checkbox:checked {
@@ -82,6 +85,7 @@
   font-size: clamp(1em, 4vw, 1.1em);
   color: #444;
   word-break: break-word; /* Rompe palabras largas para que no se salgan del contenedor */
+  overflow-wrap: break-word; /* Otra propiedad para compatibilidad */
   transition: text-decoration 0.3s ease, color 0.3s ease;
 }
 
@@ -94,6 +98,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0; /* Evita que las acciones se compriman */
 }
 
 .task-date {
@@ -103,6 +108,7 @@
   font-family: 'Josefin Sans', sans-serif;
   font-size: 0.8em;
   color: #666;
+  flex-shrink: 0; /* Evita que la fecha se comprima */
 }
 
 .date-icon {
@@ -117,6 +123,7 @@
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
   padding: 5px;
+  flex-shrink: 0; /* Evita que el botón de eliminar se comprima */
 }
 
 .delete-button:hover {
