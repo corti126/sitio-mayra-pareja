@@ -1,6 +1,3 @@
-/* src/componentes/SobreCarta/SobreCarta.css */
-
-/* Contenedor principal del sobre y textos decorativos */
 .sobre-container {
   display: flex;
   flex-direction: column;
@@ -26,14 +23,13 @@
   margin: 20px 0 0 0;
 }
 
-/* --- Estilos del Sobre (Nuevos Colores Suaves) --- */
 .envelope {
   position: relative;
   width: clamp(250px, 70vw, 400px);
   height: clamp(150px, 40vw, 250px);
-  background-color: #ffc4e0; /* NUEVO: Un rosa claro más suave */
+  background-color: #ffc4e0;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.5s ease;
@@ -44,44 +40,39 @@
   transform: translateY(-5px);
 }
 
-/* Solapa superior del sobre */
 .envelope-flap {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 50%;
-  background-color: #ff99bb; /* NUEVO: Un rosa medio que reduce el contraste */
+  background-color: #ff99bb;
   transform-origin: top;
   transition: transform 0.5s ease-out;
   z-index: 2;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
-/* Cuerpo principal del sobre */
 .envelope-body {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffc4e0; /* NUEVO: Mismo color que el sobre base para consistencia */
+  background-color: #ffc4e0;
   z-index: 1;
 }
 
-/* Corazón en el sobre */
 .envelope-heart {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: clamp(2em, 8vw, 3em);
-  color: #e91e63; /* NUEVO: El rosa fuerte para un pequeño toque de color */
+  color: #e91e63;
   z-index: 3;
   transition: opacity 0.3s ease;
 }
-
-/* --- El resto del código CSS se mantiene igual --- */
 
 .envelope.open .envelope-flap {
   transform: rotateX(180deg);
@@ -121,7 +112,6 @@
   color: #e91e63;
 }
 
-/* Media Queries para ajustes finos en móviles */
 @media (max-width: 480px) {
   .envelope {
     width: clamp(200px, 85vw, 300px);

@@ -1,9 +1,7 @@
-// src/componentes/ModalAgregarFoto/ModalAgregarFoto.jsx
-
 import React, { useState } from 'react';
 import './ModalAgregarFoto.css';
 import { FaTimes } from 'react-icons/fa';
-import { FaUpload } from 'react-icons/fa'; // ✅ Nueva importación para el icono
+import { FaUpload } from 'react-icons/fa';
 
 const IMGBB_API_KEY = 'a4ea5b36d57e09ececc110f4bb689a8d';
 
@@ -92,9 +90,7 @@ export const ModalAgregarFoto = ({ isOpen, onClose, onSave }) => {
         <form onSubmit={handleSave} className="modal-form">
           <div className="input-group">
             <label className="input-label">Seleccionar imagen</label>
-            {/* ✅ MODIFICACIÓN: Nuevo contenedor para el input */}
             <div className="custom-file-input-container">
-              {/* ✅ El input real, pero oculto */}
               <input 
                 id="file-input"
                 type="file" 
@@ -102,7 +98,6 @@ export const ModalAgregarFoto = ({ isOpen, onClose, onSave }) => {
                 onChange={handleFileChange} 
                 className="input-file-hidden" 
               />
-              {/* ✅ La etiqueta visible que estiliza el botón */}
               <label htmlFor="file-input" className="custom-file-label">
                 <FaUpload />
                 {file ? file.name : "Seleccionar archivo"}

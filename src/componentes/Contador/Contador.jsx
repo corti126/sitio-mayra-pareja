@@ -42,7 +42,7 @@ function Contador ({ onCelebrate }) {
     <>
       <p className="title-text">Tiempo desde que estamos juntos</p>
       <p className="time-display">{timeElapsed}</p>
-      <p className="more-text">Vamos por más tiempo...</p> 
+      <p className="more-text">Vamos por más...</p> 
       
       <button className="celebrate-button" onClick={onCelebrate}>
         Celebrar

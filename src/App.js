@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Contador } from './componentes/Contador/Contador';
@@ -36,7 +34,6 @@ function App() {
   
   useEffect(() => {
     const colRef = collection(db, 'fotos');
-    // ✅ MODIFICACIÓN AQUÍ: Cambiamos 'desc' por 'asc'
     const q = query(colRef, orderBy('fechaOrden', 'asc'));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -102,7 +99,7 @@ function App() {
 
   const letterContent = (
     <>
-      <p className="letter-greeting">Querida Mayra,</p>
+      <p className="letter-greeting">May,</p>
       <p className="letter-content">
         Desde que te conocí, mi corazón late más rápido que el WiFi gratis en una plaza pública.
         Eres más brillante que un mensaje de "te amo" en LED gigante y más dulce que el doble
@@ -112,8 +109,8 @@ function App() {
         en mi pantalla principal. Gracias por hacer de mi vida una versión mejorada, sin errores
         (bueno, quizá con algunos, pero todos adorables).
       </p>
-      <p className="letter-signature">Con todo mi amor,</p>
-      <p className="letter-signature-name">Santi</p>
+      <p className="letter-signature">Te amo,</p>
+      <p className="letter-signature-name">Corti</p>
     </>
   );
 
@@ -144,7 +141,7 @@ function App() {
         <div className="main-content-area">
           <Contador onCelebrate={handleCelebrate} />
           <div className="separator-line"></div>
-          <p className="connecting-phrase">¡Y hay más sorpresas!</p>
+          <p className="connecting-phrase">¡Más sorpresas!</p>
           <SobreCarta onOpenLetter={openLetterModal} />
           <div className="separator-line"></div>
           <Ruleta />

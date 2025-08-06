@@ -1,17 +1,13 @@
-// src/componentes/Listaa/Listaa.jsx
-
-import React from 'react';
 import './Listaa.css';
 import { FaTrashAlt, FaCalendarAlt } from 'react-icons/fa';
 
 export const Lista = ({ tareas, toggleCompletada, eliminarTarea }) => {
-  // Ordenamos las tareas por fecha ascendente (la más próxima primero)
   const tareasOrdenadas = [...tareas].sort((a, b) => {
-    if (!a.fecha) return 1; // Sin fecha, al final
+    if (!a.fecha) return 1;
     if (!b.fecha) return -1;
     const diffA = new Date(a.fecha) - new Date();
     const diffB = new Date(b.fecha) - new Date();
-    return diffA - diffB; // Menos días primero
+    return diffA - diffB;
   });
 
   return (

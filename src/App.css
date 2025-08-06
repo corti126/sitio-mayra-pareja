@@ -1,10 +1,6 @@
-/* src/App.css */
-
-/* --- Importación de fuentes de Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Permanent+Marker&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-/* Asegura que el HTML y el Body no tengan scrollbars por defecto */
 html, body {
   height: 100%;
   margin: 0;
@@ -12,43 +8,40 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Clase para el body cuando el modal está abierto (evita scroll de fondo) */
 body.modal-open {
   overflow: hidden;
 }
 
 #root {
-  height: 100%; /* Asegura que #root ocupe el 100% del alto */
+  height: 100%;
 }
 
 .App {
-  /* Establece el fondo con múltiples degradados radiales para crear "manchas" */
   background: 
-    radial-gradient(circle at 20% 80%, #ffd1dc, transparent 70%), /* Rosa un poco más fuerte */
-    radial-gradient(circle at 80% 20%, #ffafbf, transparent 70%), /* Rosa un poco más fuerte */
-    radial-gradient(circle at 50% 50%, #ff99bb, transparent 70%), /* Rosa medio-claro */
-    radial-gradient(circle at 10% 50%, #ff7f9e, transparent 70%), /* Rosa medio */
-    radial-gradient(circle at 90% 90%, #ff6688, transparent 70%); /* Rosa medio-oscuro */
-  background-color: #ffdde1; /* Color base si los gradientes no cubren todo */
-  background-size: 200% 200%, 250% 250%, 180% 180%, 220% 220%, 300% 300%; /* Diferentes tamaños para las "manchas" */
-  background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%; /* Posiciones iniciales */
-  animation: backgroundAnimation 5s ease infinite alternate; /* Animación de movimiento mucho más rápida (5 segundos) */
+    radial-gradient(circle at 20% 80%, #ffd1dc, transparent 70%),
+    radial-gradient(circle at 80% 20%, #ffafbf, transparent 70%),
+    radial-gradient(circle at 50% 50%, #ff99bb, transparent 70%),
+    radial-gradient(circle at 10% 50%, #ff7f9e, transparent 70%),
+    radial-gradient(circle at 90% 90%, #ff6688, transparent 70%);
+  background-color: #ffdde1;
+  background-size: 200% 200%, 250% 250%, 180% 180%, 220% 220%, 300% 300%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%;
+  animation: backgroundAnimation 5s ease infinite alternate;
   position: relative;
-  min-height: 100vh; /* ¡CAMBIO CLAVE! Asegura que .App ocupe al menos el 100% del alto de la ventana */
-  height: auto; /* Permitimos que la altura crezca con el contenido */
-  width: 100vw; /* Asegura que ocupe el 100% del ancho de la ventana */
-  display: flex; /* Usamos flexbox para el layout principal */
-  flex-direction: column; /* Elementos apilados verticalmente */
-  align-items: center; /* Centra horizontalmente los elementos */
-  justify-content: flex-start; /* Alinea el contenido al inicio */
-  padding-top: 20px; /* Espacio superior */
-  padding-bottom: 50px; /* Espacio inferior para evitar que el contenido quede pegado */
-  overflow-y: hidden; /* ¡CAMBIO CLAVE! Solo .App maneja el scroll vertical */
-  overflow-x: hidden; /* Evita scroll horizontal en .App */
-  box-sizing: border-box; /* Incluye padding en el cálculo del ancho/alto */
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-/* Animación para el fondo */
 @keyframes backgroundAnimation {
   0% {
     background-position: 0% 0%, 100% 100%, 50% 50%, 20% 80%, 80% 20%;
@@ -58,7 +51,6 @@ body.modal-open {
   }
 }
 
-/* Opcional: Capa de "efecto de mármol" con blur */
 .App::before {
   content: '';
   position: absolute;
@@ -66,12 +58,11 @@ body.modal-open {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Degradado sutil para añadir más textura y luz */
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-  filter: blur(50px) opacity(0.7); /* Difuminado y transparencia */
-  mix-blend-mode: overlay; /* Modo de mezcla para un efecto más sutil */
-  animation: overlayAnimation 6s ease infinite alternate; /* Animación de movimiento más rápida (6 segundos) */
-  z-index: -1; /* Asegura que esté detrás del contenido */
+  filter: blur(50px) opacity(0.7);
+  mix-blend-mode: overlay;
+  animation: overlayAnimation 6s ease infinite alternate;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -80,49 +71,44 @@ body.modal-open {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.2); /* Ligeramente más grande para el efecto de movimiento */
+    transform: scale(1.2);
   }
 }
 
-/* Estilos generales para el cuerpo de la página */
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
 }
 
-/* --- Estilos para la nueva área de contenido principal --- */
 .main-content-area {
   display: flex;
-  flex-direction: column; /* Por defecto, los elementos se apilan verticalmente */
-  align-items: center; /* Centra los elementos horizontalmente */
-  width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 900px; /* Ancho máximo para el contenido principal */
-  padding: 0 20px; /* Padding lateral para que no se pegue a los bordes en móviles */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
-/* Estilos para la línea separadora */
 .separator-line {
-  width: 60%; /* Ancho de la línea */
-  height: 2px; /* Grosor de la línea */
-  background-color: #ff69b4; /* Color rosa */
-  margin: 40px 0; /* Espacio arriba y abajo de la línea */
+  width: 60%;
+  height: 2px;
+  background-color: #ff69b4;
+  margin: 40px 0;
   border-radius: 1px;
   opacity: 0.7;
 }
 
-/* Estilos para la frase de conexión */
 .connecting-phrase {
   font-family: 'Dancing Script', cursive;
   font-size: clamp(1.5em, 5vw, 2em);
   color: #e91e63;
   text-align: center;
-  margin-top: -10px; /* Ajuste para acercar a la línea */
+  margin-top: -10px;
   margin-bottom: 0px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Media query para pantallas más grandes (ej. tablets o desktop) */
 @media (min-width: 768px) {
 }
 
@@ -130,13 +116,13 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: sticky; /* Fija el menú en la parte superior */
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #ffd1dc;
-  backdrop-filter: blur(5px); /* Efecto de desenfoque */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  backdrop-filter: blur(5px);
+  z-index: 1000;
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -152,7 +138,7 @@ body {
   padding: 8px 15px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-bottom: 2px solid transparent; /* Línea de base transparente */
+  border-bottom: 2px solid transparent;
 }
 
 .nav-button:hover {
@@ -165,12 +151,10 @@ body {
   border-bottom-color: #e91e63;
 }
 
-/* --- Estilos para el botón de agregar tarea (flotante) --- */
 .add-task-icon {
-  animation: pulse 2s infinite; /* Animación de pulsación */
+  animation: pulse 2s infinite;
 }
 
-/* Animación de pulsación para el icono */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -185,7 +169,7 @@ body {
 
 .add-task-button {
   position: sticky;
-  bottom: 20px; /* siempre a 20px del fondo visible */
+  bottom: 20px;
   margin-top: 20px;
   width: 60px;
   height: 60px;
@@ -262,7 +246,7 @@ body {
 }
 
 .add-photo-button {
-  bottom: 20px; /* siempre a 20px del fondo visible */
+  bottom: 20px;
   margin-top: 20px;
   width: 60px;
   height: 60px;

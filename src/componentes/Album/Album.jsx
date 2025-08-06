@@ -1,5 +1,3 @@
-// src/componentes/Album/Album.jsx
-
 import React, { useState } from 'react';
 import './Album.css';
 import { ModalAgregarFoto } from '../ModalAgregarFoto/ModalAgregarFoto';
@@ -41,12 +39,10 @@ export const Album = ({ fotos, agregarFoto, eliminarFoto }) => {
         )}
         {fotos.map((foto) => (
           <div className="album-photo" key={foto.id}>
-            {/* ✅ MODIFICACIÓN CLAVE AQUÍ: Se crea un contenedor para la imagen */}
             <div className="photo-image-container" onClick={() => openModalImagen(foto.url)}>
               <img src={foto.url} alt="recuerdo" />
             </div>
             
-            {/* ✅ La fecha ahora está fuera del contenedor de la imagen */}
             <p className="photo-date">{foto.fecha}</p>
             
             <button className="delete-photo" onClick={(e) => {

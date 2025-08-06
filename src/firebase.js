@@ -2,7 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage"; // <-- Nueva importación
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDgfyy7LPOl0qKmY21BjkrQRV-rPxLeyvk",
@@ -16,6 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-const storage = getStorage(app); // <-- Nueva instancia de Storage
+const storage = getStorage(app);
 
-export { db, storage }; // <-- Exportar ambas instancias
+export { db, storage };

@@ -1,5 +1,3 @@
-// src/componentes/ModalTarea/ModalTarea.jsx
-
 import React, { useState } from 'react';
 import './ModalTarea.css';
 import { FaTimes } from 'react-icons/fa';
@@ -8,12 +6,10 @@ export const ModalTarea = ({ isOpen, onClose, onAgregarTarea }) => {
   const [tareaTexto, setTareaTexto] = useState('');
   const [tareaFecha, setTareaFecha] = useState('');
 
-  // Verifica si ambos campos están llenos
   const esFormularioValido = tareaTexto.trim() !== '' && tareaFecha !== '';
 
   const handleAgregarTarea = (e) => {
     e.preventDefault();
-    // Solo ejecuta la lógica si el formulario es válido
     if (esFormularioValido) {
       onAgregarTarea({
         texto: tareaTexto,
@@ -65,7 +61,7 @@ export const ModalTarea = ({ isOpen, onClose, onAgregarTarea }) => {
           <button
             type="submit"
             className="modal-button"
-            disabled={!esFormularioValido} // Aquí se desactiva el botón
+            disabled={!esFormularioValido}
           >
             Agregar
           </button>
