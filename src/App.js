@@ -101,15 +101,17 @@ function App() {
     <>
       <p className="letter-greeting">May,</p>
       <p className="letter-content">
-        Desde que te conocí, mi corazón late más rápido que el WiFi gratis en una plaza pública.
-        Eres más brillante que un mensaje de "te amo" en LED gigante y más dulce que el doble
-        de caramelo en un café con extra de crema. Si fueras un algoritmo, serías el más eficiente:
-        optimizas mi felicidad con la menor cantidad de esfuerzo. Si fueras un bug, serías el único
-        que no querría corregir. Y si fueras una aplicación, serías la que siempre tengo anclada
-        en mi pantalla principal. Gracias por hacer de mi vida una versión mejorada, sin errores
-        (bueno, quizá con algunos, pero todos adorables).
+        No sé cómo explicarte lo mucho que significás para mí. Sos esa persona con la que me siento yo mismo al 100%. Con vos todo es más fácil, más lindo y más divertido.
+        <br />
+        <br />
+        Gracias por sacarme una sonrisa cada día y por acompañarme en todo, sin importar la situación. Con vos me siento en paz y tranquilo, y me encanta la relación que estamos formando. Amo tus ataques de besos, los detalles, y la forma en que me hacés reír.
+        <br />
+        <br />
+        Gracias por aparecer en mi vida, por cuidarme, por hacerme feliz y por elegirme todos los días. Sos mi churri y mi compañera.
+        <br />
+        <br />
+        Te amo mucho, y sé que siempre voy a querer estar con vos.
       </p>
-      <p className="letter-signature">Te amo,</p>
       <p className="letter-signature-name">Corti</p>
     </>
   );
