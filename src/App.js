@@ -8,10 +8,11 @@ import { SobreCarta } from './componentes/SobreCarta/SobreCarta';
 import { Modal } from './componentes/Modal/Modal';
 import { Ruleta } from './componentes/Ruleta/Ruleta';
 import { Lista } from './componentes/Listaa/Listaa';
+import { Album } from './componentes/Album/Album';
 import { ModalTarea } from './componentes/ModalTarea/ModalTarea';
 import { FaPlus } from 'react-icons/fa';
 import { db } from './firebase';
-import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, query, orderBy } from 'firebase/firestore';
 
 function App() {
   const [celebrateKey, setCelebrateKey] = useState(0);
@@ -19,10 +20,10 @@ function App() {
   const [vistaActual, setVistaActual] = useState('principal');
   const [isTareaModalOpen, setIsTareaModalOpen] = useState(false);
   const [tareas, setTareas] = useState([]);
+  const [fotos, setFotos] = useState([]);
 
   useEffect(() => {
     const colRef = collection(db, 'tareas');
-
     const unsubscribe = onSnapshot(colRef, (snapshot) => {
       const loadedTareas = [];
       snapshot.docs.forEach(doc => {
@@ -30,29 +31,29 @@ function App() {
       });
       setTareas(loadedTareas);
     });
+    return () => unsubscribe();
+  }, []);
+  
+  useEffect(() => {
+    const colRef = collection(db, 'fotos');
+    // ✅ MODIFICACIÓN AQUÍ: Cambiamos 'desc' por 'asc'
+    const q = query(colRef, orderBy('fechaOrden', 'asc'));
 
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const loadedFotos = [];
+      snapshot.docs.forEach(doc => {
+        loadedFotos.push({ id: doc.id, ...doc.data() });
+      });
+      setFotos(loadedFotos);
+    });
     return () => unsubscribe();
   }, []);
 
-  const handleCelebrate = () => {
-    setCelebrateKey(prevKey => prevKey + 1);
-  };
-
-  const openLetterModal = () => {
-    setIsLetterModalOpen(true);
-  };
-
-  const closeLetterModal = () => {
-    setIsLetterModalOpen(false);
-  };
-
-  const openTareaModal = () => {
-    setIsTareaModalOpen(true);
-  };
-
-  const closeTareaModal = () => {
-    setIsTareaModalOpen(false);
-  };
+  const handleCelebrate = () => setCelebrateKey(prevKey => prevKey + 1);
+  const openLetterModal = () => setIsLetterModalOpen(true);
+  const closeLetterModal = () => setIsLetterModalOpen(false);
+  const openTareaModal = () => setIsTareaModalOpen(true);
+  const closeTareaModal = () => setIsTareaModalOpen(false);
 
   const handleAgregarTarea = async (nuevaTarea) => {
     try {
@@ -78,6 +79,24 @@ function App() {
       await deleteDoc(docRef);
     } catch (error) {
       console.error("Error al eliminar la tarea: ", error);
+    }
+  };
+  
+  const handleAgregarFoto = async (nuevaFoto) => {
+    try {
+      const colRef = collection(db, 'fotos');
+      await addDoc(colRef, nuevaFoto);
+    } catch (error) {
+      console.error("Error al agregar la foto: ", error);
+    }
+  };
+  
+  const handleEliminarFoto = async (id) => {
+    try {
+      const docRef = doc(db, 'fotos', id);
+      await deleteDoc(docRef);
+    } catch (error) {
+      console.error("Error al eliminar la foto: ", error);
     }
   };
 
@@ -113,6 +132,12 @@ function App() {
         >
           Lista a futuro
         </button>
+        <button
+          className={`nav-button ${vistaActual === 'album' ? 'active' : ''}`}
+          onClick={() => setVistaActual('album')}
+        >
+          Álbum
+        </button>
       </div>
 
       {vistaActual === 'principal' ? (
@@ -124,7 +149,7 @@ function App() {
           <div className="separator-line"></div>
           <Ruleta />
         </div>
-      ) : (
+      ) : vistaActual === 'lista' ? (
         <>
           <Lista
             tareas={tareas}
@@ -135,6 +160,12 @@ function App() {
             <FaPlus className="add-task-icon" />
           </button>
         </>
+      ) : (
+        <Album
+          fotos={fotos}
+          agregarFoto={handleAgregarFoto}
+          eliminarFoto={handleEliminarFoto}
+        />
       )}
 
       <HeartEmitter triggerCount={celebrateKey} />

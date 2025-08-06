@@ -40,7 +40,7 @@ export const ModalTarea = ({ isOpen, onClose, onAgregarTarea }) => {
         <h3 className="modal-titulo">Agrega planes por hacer</h3>
         <form onSubmit={handleAgregarTarea} className="modal-form">
           <div className="input-group">
-            <label htmlFor="tareaTexto" className="input-label">Plan</label>
+            <label htmlFor="tareaTexto" className="input-label">Plan / Acontecimiento</label>
             <input
               type="text"
               id="tareaTexto"

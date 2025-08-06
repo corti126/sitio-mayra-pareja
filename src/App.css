@@ -206,3 +206,75 @@ body {
 .add-task-button:hover {
   background-color: #d81b60;
 }
+
+.album-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.album-empty {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  color: #e91e63;
+  text-align: center;
+}
+
+.album-photo {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.album-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.album-photo:hover {
+  transform: scale(1.03);
+}
+
+.photo-date {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+}
+
+.delete-photo {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(233, 30, 99, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.add-photo-button {
+  bottom: 20px; /* siempre a 20px del fondo visible */
+  margin-top: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
