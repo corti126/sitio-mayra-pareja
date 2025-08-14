@@ -7,7 +7,7 @@ const premios = [
   "Casa chill",
   "Salir a pasear",
   "Casino",
-  "Cena",
+  "Cocinamos",
   "Sexo",
   "Amigos",
 ];
@@ -22,7 +22,7 @@ export const Ruleta = () => {
   const dibujarRuleta = React.useCallback(() => {
     const colores = [
       "#ffb3ba", "#ffdfba", "#ffffba", "#baffc9",
-      "#bae1ff", "#e0baff", "#ffc9de", "#c9fff5"
+      "#bae1ff", "#e0baff", "#ffc9de", "#c9fff5",
     ];
 
     const canvas = canvasRef.current;
