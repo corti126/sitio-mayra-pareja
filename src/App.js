@@ -31,7 +31,7 @@ function App() {
     });
     return () => unsubscribe();
   }, []);
-  
+
   useEffect(() => {
     const colRef = collection(db, 'fotos');
     const q = query(colRef, orderBy('fechaOrden', 'asc'));
@@ -78,7 +78,7 @@ function App() {
       console.error("Error al eliminar la tarea: ", error);
     }
   };
-  
+
   const handleAgregarFoto = async (nuevaFoto) => {
     try {
       const colRef = collection(db, 'fotos');
@@ -87,7 +87,7 @@ function App() {
       console.error("Error al agregar la foto: ", error);
     }
   };
-  
+
   const handleEliminarFoto = async (id) => {
     try {
       const docRef = doc(db, 'fotos', id);
@@ -101,18 +101,27 @@ function App() {
     <>
       <p className="letter-greeting">May,</p>
       <p className="letter-content">
-        No sé cómo explicarte lo mucho que significás para mí. Sos esa persona con la que me siento yo mismo al 100%. Con vos todo es más fácil, más lindo y más divertido.
+        Quiero empezar pidiéndote perdón de nuevo. No solo por el like, sino por haberte hecho sentir insegura. Cuando decidimos empezar algo serio, vos ya eras la única persona en mi cabeza. Haber dado ese like no representa lo que sentía, y mucho menos lo que siento ahora. Fue una pelotudez de mi parte que me duele que esté tirando a la mierda la poca confianza que fuiste teniendo en mí.
         <br />
         <br />
-        Gracias por sacarme una sonrisa cada día y por acompañarme en todo, sin importar la situación. Con vos me siento en paz y tranquilo, y me encanta la relación que estamos formando. Amo tus ataques de besos, los detalles, y la forma en que me hacés reír.
+        Lo que realmente me importa es todo lo que vivimos desde el 6 de junio. Mirar hacia atrás, y ver esos meses que fueron los más felices de mi vida. 
         <br />
         <br />
-        Gracias por aparecer en mi vida, por cuidarme, por hacerme feliz y por elegirme todos los días. Sos mi churri y mi compañera.
+        Me haces muy feliz. Me encanta todo de vos: cómo te ríes, cómo pensás, y hasta como te enojas.
         <br />
         <br />
-        Te amo mucho, y sé que siempre voy a querer estar con vos.
+        Por favor, no dejes que este error viejo cambie la realidad: solo quiero estar con vos. Mi vida, mi tiempo y mis planes son CON vos.
+        <br />
+        <br />
+        Te amo. Te amo con toda mi alma, y quiero que esa sea lo primero que se te venga a la cabeza cuando pienses o te acuerdes de mí.
+        <br />
+        <br />
+        Voy a esforzarme en que podamos dejar esto atrás para poder volver a disfrutar de la linda relación que tenemos.
+        <br />
+        <br />
+        No pido que mires para otro lado y hagas que no paso nada, pero sí que esto no condicione nuestro futuro.
       </p>
-      <p className="letter-signature-name">Corti</p>
+      <p className="letter-signature-name">Te amo mucho, Corti</p>
     </>
   );
 
@@ -173,8 +182,8 @@ function App() {
         {letterContent}
       </Modal>
 
-      <ModalTarea 
-        isOpen={isTareaModalOpen} 
+      <ModalTarea
+        isOpen={isTareaModalOpen}
         onClose={closeTareaModal}
         onAgregarTarea={handleAgregarTarea}
       />

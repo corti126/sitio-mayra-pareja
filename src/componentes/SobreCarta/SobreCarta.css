@@ -102,6 +102,9 @@
   font-size: clamp(0.9em, 3vw, 1.1em);
   margin-bottom: 15px;
   color: #444;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .letter-signature, .letter-signature-name {
